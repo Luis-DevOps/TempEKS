@@ -1,0 +1,86 @@
+apiVersion: eksctl.io/v1alpha5
+availabilityZones:
+- us-east-1f
+- us-east-1c
+cloudWatch:
+  clusterLogging:
+    enableTypes: ["*"]
+iam:
+  vpcResourceControllerPolicy: true
+  withOIDC: true
+kind: ClusterConfig
+kubernetesNetworkConfig:
+  ipFamily: IPv4
+managedNodeGroups:
+- amiFamily: AmazonLinux2
+  desiredCapacity: 2
+  disableIMDSv1: false
+  disablePodIMDS: false
+  iam:
+    withAddonPolicies:
+      albIngress: false
+      appMesh: false
+      appMeshPreview: false
+      autoScaler: false
+      certManager: false
+      cloudWatch: false
+      ebs: false
+      efs: false
+      externalDNS: false
+      fsx: false
+      imageBuilder: false
+      xRay: false
+  instanceSelector: {}
+  instanceType: t3.large
+  labels:
+    alpha.eksctl.io/cluster-name: Stage01
+    alpha.eksctl.io/nodegroup-name: ng-stage01
+  maxSize: 2
+  minSize: 2
+  name: ng-stage01
+  privateNetworking: true
+  releaseVersion: ""
+  securityGroups:
+    withLocal: null
+    withShared: null
+  ssh:
+    allow: false
+    publicKeyPath: ""
+  tags:
+    alpha.eksctl.io/nodegroup-name: ng-stage01
+    alpha.eksctl.io/nodegroup-type: managed
+  volumeIOPS: 3000
+  volumeSize: 80
+  volumeThroughput: 125
+  volumeType: gp3
+metadata:
+  name: Stage01
+  region: us-east-1
+  tags:
+    environment: staging
+  version: "1.21"
+privateCluster:
+  enabled: false
+  skipEndpointCreation: false
+vpc:
+  id: vpc-eks-stage01
+  autoAllocateIPv6: false
+  cidr: 10.20.0.0/16
+  clusterEndpoints:
+    privateAccess: false
+    publicAccess: true
+  manageSharedNodeSecurityGroupRules: true
+  nat:
+    gateway: Single
+  subnets:
+    public:
+      public-one:                           
+          id: "pub-01-subnet-vpc-eks-stage01"
+      public-two:
+          id: "pub-02-subnet-vpc-eks-stage01"
+    private:
+      private-one:
+          id: "prv-01-subnet-vpc-eks-stage01"
+      private-two:
+          id: "prv-02-subnet-vpc-eks-stage01"
+    
