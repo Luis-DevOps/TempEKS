@@ -1,7 +1,12 @@
 apiVersion: eksctl.io/v1alpha5
 cloudWatch:
   clusterLogging:
-    enableTypes: ["*"]
+    enableTypes:
+    - api
+    - audit
+    - authenticator
+    - controllerManager
+    - scheduler
 iam:
   vpcResourceControllerPolicy: true
   withOIDC: true
@@ -60,24 +65,23 @@ privateCluster:
   enabled: false
   skipEndpointCreation: false
 vpc:
-  id: vpc-eks-stage01
   autoAllocateIPv6: false
   cidr: 10.20.0.0/16
   clusterEndpoints:
     privateAccess: false
     publicAccess: true
+  id: vpc-eks-stage01
   manageSharedNodeSecurityGroupRules: true
   nat:
     gateway: Single
   subnets:
-    public:
-      public-one:                           
-          id: "pub-01-subnet-vpc-eks-stage01"
-      public-two:
-          id: "pub-02-subnet-vpc-eks-stage01"
     private:
       private-one:
           id: "prv-01-subnet-vpc-eks-stage01"
       private-two:
           id: "prv-02-subnet-vpc-eks-stage01"
-    
+    public:
+      public-one:                           
+          id: "pub-01-subnet-vpc-eks-stage01"
+      public-two:
+          id: "pub-02-subnet-vpc-eks-stage01"
