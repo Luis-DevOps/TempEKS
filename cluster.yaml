@@ -76,12 +76,12 @@ vpc:
     gateway: Single
   subnets:
     private:
-      az: us-east-1a
+      us-east-1a
           id: "prv-01-subnet-vpc-eks-stage01"            
-      az: us-east-1b
+      us-east-1b
           id: "prv-02-subnet-vpc-eks-stage01"
     public:
-      az: us-east-1a                           
+      us-east-1a                           
           id: "pub-01-subnet-vpc-eks-stage01"            
-      az: us-east-1b
+      us-east-1b
           id: "pub-02-subnet-vpc-eks-stage01"
