@@ -1,7 +1,4 @@
 apiVersion: eksctl.io/v1alpha5
-availabilityZones:
-- us-east-1f
-- us-east-1c
 cloudWatch:
   clusterLogging:
     enableTypes: ["*"]
