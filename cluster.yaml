@@ -75,13 +75,15 @@ vpc:
   nat:
     gateway: Single
   subnets:
-    private:
-      us-east-1a:
-          id: "prv-01-subnet-vpc-eks-stage01"            
-      us-east-1b:
-          id: "prv-02-subnet-vpc-eks-stage01"
     public:
-      us-east-1a:                          
-          id: "pub-01-subnet-vpc-eks-stage01"            
-      us-east-1b:
-          id: "pub-02-subnet-vpc-eks-stage01"
+      public-one:                           # arbitrary key
+          id: "subnet-0153e560b3129a696"
+      public-two:
+          id: "subnet-0cc9c5aebe75083fd"
+      us-west-2b:                           # or list by AZ
+          id: "subnet-018fa0176ba320e45"
+    private:
+      private-one:
+          id: "subnet-0153e560b3129a696"
+      private-two:
+          id: "subnet-0cc9c5aebe75083fd"
