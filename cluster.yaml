@@ -77,15 +77,17 @@ vpc:
   subnets:
     private:
       private-one:
-        az: private-one
-        id: prv-01-subnet-vpc-eks-stage01
+          id: "prv-01-subnet-vpc-eks-stage01"
+            az: us-east-1a
       private-two:
-        az: private-two
-        id: prv-02-subnet-vpc-eks-stage01
+          id: "prv-02-subnet-vpc-eks-stage01"
+            az: us-east-1b
     public:
-      public-one:
-        az: public-one
-        id: pub-01-subnet-vpc-eks-stage01
+      public-one:                           
+          id: "pub-01-subnet-vpc-eks-stage01"
+            az: us-east-1a
       public-two:
-        az: public-two
-        id: pub-02-subnet-vpc-eks-stage01
+          id: "pub-02-subnet-vpc-eks-stage01"
+            az: us-east-1b
+
+    
