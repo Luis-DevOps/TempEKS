@@ -46,8 +46,8 @@ managedNodeGroups:
     withLocal: null
     withShared: null
   ssh:
-    allow: false
-    publicKeyPath: ""
+    allow: true
+    publicKeyPath: "kube-demo"
   tags:
     alpha.eksctl.io/nodegroup-name: ng-stage01
     alpha.eksctl.io/nodegroup-type: managed
@@ -74,20 +74,27 @@ vpc:
   manageSharedNodeSecurityGroupRules: true
   nat:
     gateway: Single
+  # subnets:
+    # private:
+      # us-east-1a:
+          # id: "prv-01-subnet-vpc-eks-stage01"            
+      # us-east-1b:
+          # id: "prv-02-subnet-vpc-eks-stage01"
+    # public:
+      # us-east-1a:                          
+          # id: "pub-01-subnet-vpc-eks-stage01"            
+      # us-east-1b:
+          # id: "pub-02-subnet-vpc-eks-stage01"
   subnets:
     public:
-      public-one:
-        id: subnet-0324095a4f2188967
-        # az: us-west-2a # any unambiguous combination of these is allowed
-        # cidr: 192.168.64.0/19
+      public-one:                           # arbitrary key
+          id: "prv-01-subnet-vpc-eks-stage01"
       public-two:
-        id: subnet-083814b087bad140b
-      public-three:
-        id: subnet-03a1260affe6f9944
+          id: "prv-02-subnet-vpc-eks-stage01"
+      us-east-1b:                           # or list by AZ
+          id: "prv-03-subnet-vpc-eks-stage01"
     private:
       private-one:
-        cidr: "192.168.160.0/19"
+          id: "pub-01-subnet-vpc-eks-stage01" 
       private-two:
-        id: subnet-00110ffa3ef259d0c
-      private-three:
-        id: subnet-0a96e24163ef2c9c3
+          id: "pub-02-subnet-vpc-eks-stage01"
