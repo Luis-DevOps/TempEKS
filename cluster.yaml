@@ -76,14 +76,18 @@ vpc:
     gateway: Single
   subnets:
     public:
-      public-one:                           # arbitrary key
-          id: "prv-01-subnet-vpc-eks-stage01"
+      public-one:
+        id: subnet-0324095a4f2188967
+        # az: us-west-2a # any unambiguous combination of these is allowed
+        # cidr: 192.168.64.0/19
       public-two:
-          id: "prv-02-subnet-vpc-eks-stage01"
-      us-east-1b:                           # or list by AZ
-          id: "prv-03-subnet-vpc-eks-stage01"
+        id: subnet-083814b087bad140b
+      public-three:
+        id: subnet-03a1260affe6f9944
     private:
       private-one:
-          id: "pub-01-subnet-vpc-eks-stage01" 
+        cidr: "192.168.160.0/19"
       private-two:
-          id: "pub-02-subnet-vpc-eks-stage01"
+        id: subnet-00110ffa3ef259d0c
+      private-three:
+        id: subnet-0a96e24163ef2c9c3
