@@ -47,7 +47,7 @@ managedNodeGroups:
     withShared: null
   ssh:
     allow: true
-    publicKeyPath: "kube-demo"
+    publicKeyPath: "eks-gem-key"
   tags:
     alpha.eksctl.io/nodegroup-name: ng-stage01
     alpha.eksctl.io/nodegroup-type: managed
