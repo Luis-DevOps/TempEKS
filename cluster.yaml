@@ -74,27 +74,3 @@ vpc:
   manageSharedNodeSecurityGroupRules: true
   nat:
     gateway: Single
-  # subnets:
-    # private:
-      # us-east-1a:
-          # id: "prv-01-subnet-vpc-eks-stage01"            
-      # us-east-1b:
-          # id: "prv-02-subnet-vpc-eks-stage01"
-    # public:
-      # us-east-1a:                          
-          # id: "pub-01-subnet-vpc-eks-stage01"            
-      # us-east-1b:
-          # id: "pub-02-subnet-vpc-eks-stage01"
-  subnets:
-    public:
-      public-one:                           # arbitrary key
-          id: "prv-01-subnet-vpc-eks-stage01"
-      public-two:
-          id: "prv-02-subnet-vpc-eks-stage01"
-      us-east-1b:                           # or list by AZ
-          id: "prv-03-subnet-vpc-eks-stage01"
-    private:
-      private-one:
-          id: "pub-01-subnet-vpc-eks-stage01" 
-      private-two:
-          id: "pub-02-subnet-vpc-eks-stage01"
