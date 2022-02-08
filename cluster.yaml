@@ -58,7 +58,7 @@ managedNodeGroups:
   volumeSize: 80
   volumeThroughput: 125
   volumeType: gp3
-- name: windows-ng
+- name: ng-windows-Stage01
   amiFamily: WindowsServer2019FullContainer
   minSize: 2
   maxSize: 3
