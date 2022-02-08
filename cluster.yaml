@@ -91,7 +91,7 @@ nodeGroups:
   maxSize: 2
   minSize: 2
   name: ng-windows-Stage01
-  privateNetworking: false
+  privateNetworking: true
   securityGroups:
     withLocal: true
     withShared: true
