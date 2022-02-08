@@ -111,7 +111,6 @@ vpc:
   clusterEndpoints:
     privateAccess: false
     publicAccess: true
-  id: vpc-eks-stage01
   manageSharedNodeSecurityGroupRules: true
   nat:
     gateway: Single
