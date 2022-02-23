@@ -55,7 +55,7 @@ managedNodeGroups:
     alpha.eksctl.io/nodegroup-name: ng-linux-stage01
     alpha.eksctl.io/nodegroup-type: managed
   volumeIOPS: 3000
-  volumeSize: 80
+  volumeSize: 20
   volumeThroughput: 125
   volumeType: gp3
 metadata:
@@ -99,7 +99,7 @@ nodeGroups:
     allow: true
     publicKeyPath: eks-gem-windows-key
   volumeIOPS: 3000
-  volumeSize: 80
+  volumeSize: 40
   volumeThroughput: 125
   volumeType: gp3
 privateCluster:
