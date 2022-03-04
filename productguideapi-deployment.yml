@@ -1,20 +1,18 @@
-# Please edit the object below. Lines beginning with a '#' will be ignored,
-# and an empty file will abort the edit. If an error occurs while saving this file will be
-# reopened with the relevant failures.
-#
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
     deployment.kubernetes.io/revision: "1"
-  creationTimestamp: "2022-03-04T20:07:43Z"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"deployment.kubernetes.io/revision":"1"},"creationTimestamp":"2022-03-04T20:07:43Z","generation":1,"labels":{"app":"productguideapi-deployment"},"name":"productguideapi-deployment","namespace":"default","resourceVersion":"2239022","uid":"bde38b7e-969d-4f03-9d1b-212c2f94f41f"},"spec":{"progressDeadlineSeconds":600,"replicas":2,"revisionHistoryLimit":10,"selector":{"matchLabels":{"app":"productguideapi-deployment"}},"strategy":{"rollingUpdate":{"maxSurge":"25%","maxUnavailable":"25%"},"type":"RollingUpdate"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"productguideapi-deployment"}},"spec":{"containers":[{"image":"gemgroup/productguideapi:ab680cc9","imagePullPolicy":"IfNotPresent","name":"productguideapi","resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File"}],"dnsPolicy":"ClusterFirst","nodeSelector":{"kubernetes.io/arch":"amd64","kubernetes.io/os":"windows"},"restartPolicy":"Always","schedulerName":"default-scheduler","securityContext":{},"serviceAccountName":"docker-image-pull-sa","terminationGracePeriodSeconds":30}}},"status":{"conditions":[{"lastTransitionTime":"2022-03-04T20:07:43Z","lastUpdateTime":"2022-03-04T20:07:43Z","message":"Deployment does not have minimum availability.","reason":"MinimumReplicasUnavailable","status":"False","type":"Available"},{"lastTransitionTime":"2022-03-04T20:07:43Z","lastUpdateTime":"2022-03-04T20:07:44Z","message":"ReplicaSet \"productguideapi-deployment-8674866746\" is progressing.","reason":"ReplicaSetUpdated","status":"True","type":"Progressing"}],"observedGeneration":1,"replicas":1,"unavailableReplicas":1,"updatedReplicas":1}}
+  creationTimestamp: "2022-03-04T22:37:05Z"
   generation: 1
   labels:
     app: productguideapi-deployment
   name: productguideapi-deployment
   namespace: default
-  resourceVersion: "2239022"
-  uid: bde38b7e-969d-4f03-9d1b-212c2f94f41f
+  resourceVersion: "2266428"
+  uid: dc308de8-2450-4d4d-a9a6-dd20451625aa
 spec:
   progressDeadlineSeconds: 600
   replicas: 2
@@ -33,10 +31,6 @@ spec:
       labels:
         app: productguideapi-deployment
     spec:
-      serviceAccountName: docker-image-pull-sa
-      nodeSelector:
-        kubernetes.io/os: windows
-        kubernetes.io/arch: amd64
       containers:
       - image: gemgroup/productguideapi:ab680cc9
         imagePullPolicy: IfNotPresent
@@ -45,25 +39,31 @@ spec:
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
+      nodeSelector:
+        kubernetes.io/arch: amd64
+        kubernetes.io/os: windows
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
+      serviceAccount: docker-image-pull-sa
+      serviceAccountName: docker-image-pull-sa
       terminationGracePeriodSeconds: 30
 status:
+  availableReplicas: 2
   conditions:
-  - lastTransitionTime: "2022-03-04T20:07:43Z"
-    lastUpdateTime: "2022-03-04T20:07:43Z"
-    message: Deployment does not have minimum availability.
-    reason: MinimumReplicasUnavailable
-    status: "False"
+  - lastTransitionTime: "2022-03-04T22:37:13Z"
+    lastUpdateTime: "2022-03-04T22:37:13Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
     type: Available
-  - lastTransitionTime: "2022-03-04T20:07:43Z"
-    lastUpdateTime: "2022-03-04T20:07:44Z"
-    message: ReplicaSet "productguideapi-deployment-8674866746" is progressing.
-    reason: ReplicaSetUpdated
+  - lastTransitionTime: "2022-03-04T22:37:05Z"
+    lastUpdateTime: "2022-03-04T22:37:13Z"
+    message: ReplicaSet "productguideapi-deployment-6f667f5b58" has successfully progressed.
+    reason: NewReplicaSetAvailable
     status: "True"
     type: Progressing
   observedGeneration: 1
-  replicas: 1
-  unavailableReplicas: 1
-  updatedReplicas: 1
+  readyReplicas: 2
+  replicas: 2
+  updatedReplicas: 2
